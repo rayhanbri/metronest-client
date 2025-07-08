@@ -7,9 +7,9 @@ const Footer = () => {
             <aside>
                 <MetroNest></MetroNest>
                 <p className="font-bold">
-                    ACME Industries Ltd.
+                    MetroNest Industries Ltd.
                     <br />
-                    Providing reliable tech since 1992
+                    Providing reliable home since 1992
                 </p>
                 <p>Copyright © {new Date().getFullYear()} - All right reserved</p>
             </aside>

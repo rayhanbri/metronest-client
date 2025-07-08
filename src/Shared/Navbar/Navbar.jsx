@@ -41,7 +41,7 @@ const Navbar = () => {
                         :
                         <Link to='login' className='btn btn-primary text-black p-3'>Login</Link>
                 } */}
-                <Link to='login' className='btn btn-primary text-black p-3 bg-[#1a8cff]' >Login</Link>
+                <Link to='login' className='btn  text-white p-3 bg-[#1a8cff]' >Login</Link>
             </div>
         </div>
     );
