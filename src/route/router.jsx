@@ -4,6 +4,7 @@ import {
 } from "react-router";
 import RootLayout from '../Layout/RootLayout';
 import HomeLayout from '../Layout/HomeLayout';
+import AllProperties from '../Pages/AllProperties/AllProperties';
 
 export const router = createBrowserRouter([
     {
@@ -14,8 +15,13 @@ export const router = createBrowserRouter([
                 index: true,
                 Component: HomeLayout
             },
+            {
+                path:'allProperties',
+                Component:AllProperties
+            }
         ]
     },
+   
 ]);
 
 
