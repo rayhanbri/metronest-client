@@ -18,7 +18,6 @@ const Banner = () => {
             </div>
             <div className='my-5'>
                 <img className='rounded-4xl lg:min-h-screen' src={img3} />
-
             </div>
           
         </Carousel>
