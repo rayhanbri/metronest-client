@@ -1,13 +1,19 @@
 import React from 'react';
 import { Link, NavLink } from 'react-router';
 import MetroNest from '../MetroNest/MetroNest';
+import useAuth from '../../Hooks/useAuth';
 
 const Navbar = () => {
+    const { user, logOut } = useAuth();
     const links = <>
         <li><NavLink to='/'>Home</NavLink></li>
         <li><NavLink to='allProperties'>All Properties</NavLink></li>
         <li><NavLink to='/dashBoard'>DashBoard</NavLink></li>
     </>
+
+    const handleLogOut = () => {
+        logOut();
+    }
 
     return (
         <div className="navbar bg-base-100 shadow-sm">
@@ -36,12 +42,11 @@ const Navbar = () => {
                 </ul>
             </div>
             <div className="navbar-end">
-                {/* {
-                    user ? <button onClick={handleLogOut} className='btn btn-primary text-black p-3'>Logout</button>
+                {
+                    user ? <button onClick={handleLogOut} className='btn btn-primary text-white  bg-[#1a8cff] p-3'>Logout</button>
                         :
-                        <Link to='login' className='btn btn-primary text-black p-3'>Login</Link>
-                } */}
-                <Link to='login' className='btn  text-white p-3 bg-[#1a8cff]' >Login</Link>
+                        <Link to='login' className='btn  text-white p-3 bg-[#1a8cff]' >Login</Link>
+                }
             </div>
         </div>
     );

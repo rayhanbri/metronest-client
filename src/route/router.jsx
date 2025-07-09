@@ -5,6 +5,8 @@ import {
 import RootLayout from '../Layout/RootLayout';
 import HomeLayout from '../Layout/HomeLayout';
 import AllProperties from '../Pages/AllProperties/AllProperties';
+import Login from '../Pages/Auth/Login';
+import Register from '../Pages/Auth/Register';
 
 export const router = createBrowserRouter([
     {
@@ -18,6 +20,14 @@ export const router = createBrowserRouter([
             {
                 path:'allProperties',
                 Component:AllProperties
+            },
+            {
+                path: 'login',
+                Component: Login
+            },
+            {
+                path:'register',
+                Component: Register
             }
         ]
     },

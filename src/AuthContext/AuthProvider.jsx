@@ -26,6 +26,9 @@ const AuthProvider = ({ children }) => {
 
     const googleLogin = () => {
         setLoading(true);
+        // Ensure scope and prompt are always refreshed before login
+        provider.addScope('email');
+        provider.setCustomParameters({ prompt: 'select_account' });
         return signInWithPopup(auth, provider)
     }
 
