@@ -2,8 +2,10 @@ import React from 'react';
 import useAuth from '../../Hooks/useAuth';
 import Swal from 'sweetalert2';
 import { GoogleAuthProvider } from 'firebase/auth/web-extension';
+import { useNavigate } from 'react-router';
 
-const SocialLogin = () => {
+const SocialLogin = ({from}) => {
+    const navigate = useNavigate();
 
     const provider = new GoogleAuthProvider();
 
@@ -29,6 +31,7 @@ const SocialLogin = () => {
                     timer: 2000, // time in milliseconds (2000ms = 2s)
                     showConfirmButton: false,
                 });
+                navigate(from)
             })
             .catch(error => {
                 console.log(error)

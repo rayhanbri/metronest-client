@@ -1,6 +1,6 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
-import { Link } from 'react-router';
+import { Link, useLocation, useNavigate } from 'react-router';
 import Swal from 'sweetalert2';
 import useAuth from '../../Hooks/useAuth';
 import SocialLogin from '../../Shared/SocialLogin/SocialLogin';
@@ -12,6 +12,11 @@ const Login = () => {
         handleSubmit,
         formState: { errors }
     } = useForm();
+    const location = useLocation();
+    const navigate = useNavigate();
+    const from = location?.state || '/';
+
+    // console.log(from)
 
     const onSubmit = (data) => {
 
@@ -25,6 +30,7 @@ const Login = () => {
                     timer: 2000, // time in milliseconds (2000ms = 2s)
                     showConfirmButton: false,
                 });
+                navigate(from)
             })
             .catch((error) => {
                 let message = 'Login failed. Please try again.';
@@ -38,7 +44,7 @@ const Login = () => {
                     title: 'Oops...',
                     text: message,
                 });
-               
+
             });
 
         // console.log('Login data:', data);
@@ -80,9 +86,9 @@ const Login = () => {
 
                     <button type="submit" className="btn btn-primary w-full">Login</button>
                 </form>
-                <SocialLogin></SocialLogin>
+                <SocialLogin from={from}></SocialLogin>
                 <p className="text-sm text-center mt-4">
-                    Don’t have an account? <span to='register' className="text-blue-600 font-medium cursor-pointer"><Link to='/register'>Register</Link></span>
+                    Don’t have an account? <span to='register' className="text-blue-600 font-medium cursor-pointer"><Link state={from} to='/register'>Register</Link></span>
                 </p>
             </div>
         </div>

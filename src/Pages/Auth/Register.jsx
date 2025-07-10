@@ -2,10 +2,17 @@ import React from 'react';
 import { useForm } from 'react-hook-form';
 import useAuth from '../../Hooks/useAuth';
 import Swal from 'sweetalert2';
-import { Link } from 'react-router';
+import { Link, useLocation, useNavigate } from 'react-router';
 import SocialLogin from '../../Shared/SocialLogin/SocialLogin';
 
 const Register = () => {
+    const location = useLocation();
+    const from = location.state || '/';
+    const navigate = useNavigate();
+
+
+
+    console.log(from)
     const { createUser } = useAuth()
     const {
         register,
@@ -26,6 +33,7 @@ const Register = () => {
                     timer: 2000, // time in milliseconds (2000ms = 2s)
                     showConfirmButton: false,
                 });
+                navigate(from)
             })
             .catch(error => {
                 console.log(error)
