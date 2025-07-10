@@ -26,7 +26,7 @@ const SocialLogin = ({from}) => {
                 console.log(result.user)
                 console.log(result.user.providerData[0]?.email)
                  const userInfo = {
-                    email: result.user.providerData[0]?.email || result.user.email,
+                    email: result.user.providerData[0]?.email || result.user?.email,
                     role: 'user', // default
                     created_at: new Date().toISOString(),
                     last_log_in: new Date().toISOString()

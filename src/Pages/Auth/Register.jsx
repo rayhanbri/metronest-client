@@ -5,52 +5,73 @@ import Swal from 'sweetalert2';
 import { Link, useLocation, useNavigate } from 'react-router';
 import SocialLogin from '../../Shared/SocialLogin/SocialLogin';
 import useAxios from '../../Hooks/useAxios';
+import axios from 'axios';
 
 const Register = () => {
-    const { createUser } = useAuth();
-    const {
-        register,
-        handleSubmit,
-        formState: { errors }
-    } = useForm();
+    const { createUser, updateUserProfile } = useAuth();
+    const { register, handleSubmit, formState: { errors }, watch } = useForm();
     const axiosInstance = useAxios();
     const location = useLocation();
     const from = location.state || '/';
     const navigate = useNavigate();
-    // console.log(from)
+
+    const imageFile = watch("image");
+
+    const onSubmit = async (data) => {
+        try {
+            // ✅ 1. Upload image to Cloudinary
+            const formData = new FormData();
+            formData.append("file", imageFile[0]);
+            formData.append("upload_preset", "metronest_unsigned"); // REPLACE
+            formData.append("cloud_name", "dw4mgofwn"); // REPLACE
+
+            const cloudinaryRes = await axios.post(
+                "https://api.cloudinary.com/v1_1/dw4mgofwn/image/upload",
+                formData
+            );
+
+            const imageUrl = cloudinaryRes.data.secure_url;
+
+            // ✅ 2. Create user with Firebase
+            const userCredential = await createUser(data.email, data.password);
+
+            console.log(userCredential.user)
+
+            // ✅ 3. Update profile in Firebase
+            await updateUserProfile({
+                displayName: data.name,
+                photoURL: imageUrl
+            });
+
+            // ✅ 4. Save user in MongoDB
+            const userInfo = {
+                name: data.name,
+                email: data.email,
+                image: imageUrl,
+                role: 'user',
+                created_at: new Date().toISOString(),
+                last_log_in: new Date().toISOString()
+            };
+            await axiosInstance.post('/users', userInfo);
+
+            // ✅ 5. Show success
+            Swal.fire({
+                icon: 'success',
+                title: 'Register Successful',
+                timer: 2000,
+                showConfirmButton: false
+            });
 
 
-
-    const onSubmit = (data) => {
-        // createUser 
-        createUser(data.email, data.password)
-            .then(async (res) => {
-                console.log(res.data)
-                // update use info in data base 
-                const userInfo = {
-                    email: data.email,
-                    role: 'user', // default
-                    created_at: new Date().toISOString(),
-                    last_log_in: new Date().toISOString()
-                }
-                const user = await axiosInstance.post('/users', userInfo);
-                console.log(user.data)
-                Swal.fire({
-                    icon: 'success',
-                    title: 'Register Successfull',
-                    text: 'Redirecting ...',
-                    timer: 2000, // time in milliseconds (2000ms = 2s)
-                    showConfirmButton: false,
-                });
-
-                navigate(from)
-            })
-            .catch(error => {
-                console.log(error)
-            })
-
-        console.log('Register Form Data:', data);
-        // onRegister(data.name, data.email, data.password);
+            navigate(from);
+        } catch (error) {
+            console.error(error);
+            Swal.fire({
+                icon: 'error',
+                title: 'Registration Failed',
+                text: error.message,
+            });
+        }
     };
 
     return (
@@ -73,9 +94,21 @@ const Register = () => {
                             className="input input-bordered w-full"
                             {...register("name", { required: "Name is required" })}
                         />
-                        {errors.name && (
-                            <p className="text-red-500 text-sm mt-1">{errors.name.message}</p>
-                        )}
+                        {errors.name && <p className="text-red-500 text-sm mt-1">{errors.name.message}</p>}
+                    </div>
+
+                    {/* Profile Photo */}
+                    <div>
+                        <label className="label">
+                            <span className="label-text">Profile Photo</span>
+                        </label>
+                        <input
+                            type="file"
+                            accept="image/*"
+                            className="file-input file-input-bordered w-full"
+                            {...register("image", { required: "Profile photo is required" })}
+                        />
+                        {errors.image && <p className="text-red-500 text-sm mt-1">{errors.image.message}</p>}
                     </div>
 
                     {/* Email */}
@@ -85,7 +118,6 @@ const Register = () => {
                         </label>
                         <input
                             type="email"
-                            placeholder="Enter your email"
                             className="input input-bordered w-full"
                             {...register("email", {
                                 required: "Email is required",
@@ -95,9 +127,7 @@ const Register = () => {
                                 }
                             })}
                         />
-                        {errors.email && (
-                            <p className="text-red-500 text-sm mt-1">{errors.email.message}</p>
-                        )}
+                        {errors.email && <p className="text-red-500 text-sm mt-1">{errors.email.message}</p>}
                     </div>
 
                     {/* Password */}
@@ -107,7 +137,6 @@ const Register = () => {
                         </label>
                         <input
                             type="password"
-                            placeholder="Create a password"
                             className="input input-bordered w-full"
                             {...register("password", {
                                 required: "Password is required",
@@ -121,19 +150,15 @@ const Register = () => {
                                 }
                             })}
                         />
-                        {errors.password && (
-                            <p className="text-red-500 text-sm mt-1">{errors.password.message}</p>
-                        )}
+                        {errors.password && <p className="text-red-500 text-sm mt-1">{errors.password.message}</p>}
                     </div>
 
-                    <button type="submit" className="btn btn-primary w-full">
-                        Register
-                    </button>
+                    <button type="submit" className="btn btn-primary w-full">Register</button>
                 </form>
-                <SocialLogin></SocialLogin>
+
+                <SocialLogin />
                 <p className="text-sm text-center mt-4">
-                    Already have an account?{' '}
-                    <span className="text-blue-600 font-medium cursor-pointer"><Link to='/login'>Login</Link></span>
+                    Already have an account? <Link to="/login" className="text-blue-600 font-medium">Login</Link>
                 </p>
             </div>
         </div>
