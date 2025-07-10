@@ -22,7 +22,7 @@ export const router = createBrowserRouter([
             },
             {
                 path:'allProperties',
-                Component:AllProperties
+               element:<PrivateRoute><AllProperties></AllProperties></PrivateRoute>
             },
             {
                 path: 'login',

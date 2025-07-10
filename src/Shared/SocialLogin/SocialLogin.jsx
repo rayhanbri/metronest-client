@@ -3,9 +3,11 @@ import useAuth from '../../Hooks/useAuth';
 import Swal from 'sweetalert2';
 import { GoogleAuthProvider } from 'firebase/auth/web-extension';
 import { useNavigate } from 'react-router';
+import useAxios from '../../Hooks/useAxios';
 
 const SocialLogin = ({from}) => {
     const navigate = useNavigate();
+    const axiosInstance = useAxios();
 
     const provider = new GoogleAuthProvider();
 
@@ -20,9 +22,17 @@ const SocialLogin = ({from}) => {
     const { googleLogin } = useAuth();
     const handleLogin = () => {
         googleLogin()
-            .then(result => {
+            .then(async (result) => {
                 console.log(result.user)
                 console.log(result.user.providerData[0]?.email)
+                 const userInfo = {
+                    email: result.user.providerData[0]?.email || result.user.email,
+                    role: 'user', // default
+                    created_at: new Date().toISOString(),
+                    last_log_in: new Date().toISOString()
+                }
+                const user = await axiosInstance.post('/users', userInfo);
+                console.log(user.data)
                 
                 Swal.fire({
                     icon: 'success',

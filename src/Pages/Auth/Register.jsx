@@ -4,35 +4,45 @@ import useAuth from '../../Hooks/useAuth';
 import Swal from 'sweetalert2';
 import { Link, useLocation, useNavigate } from 'react-router';
 import SocialLogin from '../../Shared/SocialLogin/SocialLogin';
+import useAxios from '../../Hooks/useAxios';
 
 const Register = () => {
-    const location = useLocation();
-    const from = location.state || '/';
-    const navigate = useNavigate();
-
-
-
-    console.log(from)
-    const { createUser } = useAuth()
+    const { createUser } = useAuth();
     const {
         register,
         handleSubmit,
         formState: { errors }
     } = useForm();
+    const axiosInstance = useAxios();
+    const location = useLocation();
+    const from = location.state || '/';
+    const navigate = useNavigate();
+    // console.log(from)
+
+
 
     const onSubmit = (data) => {
-
         // createUser 
         createUser(data.email, data.password)
-            .then(res => {
+            .then(async (res) => {
                 console.log(res.data)
+                // update use info in data base 
+                const userInfo = {
+                    email: data.email,
+                    role: 'user', // default
+                    created_at: new Date().toISOString(),
+                    last_log_in: new Date().toISOString()
+                }
+                const user = await axiosInstance.post('/users', userInfo);
+                console.log(user.data)
                 Swal.fire({
                     icon: 'success',
                     title: 'Register Successfull',
-                    text: 'Redirecting to dashboard...',
+                    text: 'Redirecting ...',
                     timer: 2000, // time in milliseconds (2000ms = 2s)
                     showConfirmButton: false,
                 });
+
                 navigate(from)
             })
             .catch(error => {
