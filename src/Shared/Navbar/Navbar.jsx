@@ -8,7 +8,7 @@ const Navbar = () => {
     const links = <>
         <li><NavLink to='/'>Home</NavLink></li>
         <li><NavLink to='allProperties'>All Properties</NavLink></li>
-        <li><NavLink to='/dashBoard'>DashBoard</NavLink></li>
+        <li><NavLink to='/dash-board'>DashBoard</NavLink></li>
     </>
 
     const handleLogOut = () => {

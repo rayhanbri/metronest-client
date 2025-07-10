@@ -8,6 +8,7 @@ import AllProperties from '../Pages/AllProperties/AllProperties';
 import Login from '../Pages/Auth/Login';
 import Register from '../Pages/Auth/Register';
 import Error from '../Error/Error'
+import DashboardLayout from '../Layout/DashBoardLayOut';
 export const router = createBrowserRouter([
     {
         path: "/",
@@ -32,6 +33,10 @@ export const router = createBrowserRouter([
             }
         ]
     },
+    {
+        path: 'dash-board',
+        Component: DashboardLayout
+    }
    
 ]);
 
