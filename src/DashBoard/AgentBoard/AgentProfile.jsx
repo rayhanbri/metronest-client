@@ -1,13 +1,14 @@
 import React from 'react';
 import useRole from '../../Hooks/useRole';
 import useAuth from '../../Hooks/useAuth';
+import Spinner from '../../Spinner/Spinner';
 
 const AgentProfile = () => {
     const { role, isLoading } = useRole();
     const { user } = useAuth();
 
     if (isLoading) {
-        return <p>Loading user info...</p>;
+        return <Spinner></Spinner>;
     }
 
     // If user is regular (e.g., role === 'user'), don't show the role or profile

@@ -1,17 +1,24 @@
-// src/Hooks/useRole.js
 import { useQuery } from '@tanstack/react-query';
 import useAuth from './useAuth';
 import useAxiosSecure from './useAxiosSecure';
 
 const useRole = () => {
-    const { user, loading } = useAuth(); // get current Firebase user
-    const axiosSecure = useAxiosSecure(); // your axios instance with baseURL and JWT token
+    const { user, loading } = useAuth();
+    const axiosSecure = useAxiosSecure();
 
-    const { data: role = null, isLoading, refetch, isError } = useQuery({
-        enabled: !loading && !!user?.email, // only run if user and email exist
-        queryKey: ['role', user?.email],
+    // Use fallback email from providerData if top-level email is missing
+    const userEmail = user?.email || user?.providerData?.[0]?.email;
+
+    const {
+        data: role = null,
+        isLoading,
+        refetch,
+        isError
+    } = useQuery({
+        enabled: !loading && !!userEmail,
+        queryKey: ['role', userEmail],
         queryFn: async () => {
-            const res = await axiosSecure.get(`/users/role/${user.email}`);
+            const res = await axiosSecure.get(`/users/role/${userEmail}`);
             return res.data?.role || null;
         }
     });
