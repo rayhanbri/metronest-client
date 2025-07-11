@@ -10,6 +10,7 @@ import Register from '../Pages/Auth/Register';
 import Error from '../Error/Error'
 import DashboardLayout from '../Layout/DashBoardLayOut';
 import PrivateRoute from '../PrivateRoute/PrivateRoute';
+import AgentProfile from '../DashBoard/AgentBoard/AgentProfile';
 export const router = createBrowserRouter([
     {
         path: "/",
@@ -36,7 +37,13 @@ export const router = createBrowserRouter([
     },
     {
         path: 'dash-board',
-        element:<PrivateRoute><DashboardLayout></DashboardLayout></PrivateRoute>
+        element:<PrivateRoute><DashboardLayout></DashboardLayout></PrivateRoute>,
+        children:[
+            {
+                path :'agent-profile',
+                Component : AgentProfile
+            }
+        ]
     }
    
 ]);
