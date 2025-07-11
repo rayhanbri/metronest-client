@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link, Outlet } from 'react-router';
-import { FaBars, FaHome, FaUser, FaList, FaSignOutAlt, FaUserCircle, FaHeart, FaShoppingCart, FaCommentDots, FaPlus, FaBuilding, FaHandshake, FaClipboardList } from 'react-icons/fa';
+import { FaBars, FaHome, FaUser, FaList, FaSignOutAlt, FaUserCircle, FaHeart, FaShoppingCart, FaCommentDots, FaPlus, FaBuilding, FaHandshake, FaClipboardList, FaUserShield, FaTools, FaUsersCog, FaComments } from 'react-icons/fa';
 import useRole from '../Hooks/useRole';
 import Spinner from '../Spinner/Spinner';
 import MetroNest from '../Shared/MetroNest/MetroNest';
@@ -31,7 +31,17 @@ const DashboardLayout = () => {
             <div className="drawer-side">
                 <label htmlFor="dashboard-drawer" className="drawer-overlay"></label>
                 <ul className="menu p-4 w-64 min-h-full bg-base-200 text-base-content">
-                      <MetroNest /> 
+                    <MetroNest />
+                    {/* admin links  */}
+                    {role === 'admin' &&
+                        <>
+                            <div className="divider">Admin Panel</div>
+                            <li><Link to="admin-profile"><FaUserShield className='text-purple-700' /> Admin Profile</Link></li>
+                            <li><Link to="manage-properties"><FaTools className='text-green-600' /> Manage Properties</Link></li>
+                            <li><Link to="manage-users"><FaUsersCog className='text-blue-600' /> Manage Users</Link></li>
+                            <li><Link to="manage-reviews"><FaComments className='text-pink-600' /> Manage Reviews</Link></li>
+                        </>
+                    }
                     {/* user links  */}
                     {
                         role === 'user' &&
