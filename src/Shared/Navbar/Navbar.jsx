@@ -5,50 +5,73 @@ import useAuth from '../../Hooks/useAuth';
 
 const Navbar = () => {
     const { user, logOut } = useAuth();
-    const links = <>
-        <li><NavLink to='/'>Home</NavLink></li>
-        <li><NavLink to='allProperties'>All Properties</NavLink></li>
-        <li><NavLink to='/dash-board'>DashBoard</NavLink></li>
-    </>
+
+    const links = (
+        <>
+            <li><NavLink to="/">Home</NavLink></li>
+            <li><NavLink to="/allProperties">All Properties</NavLink></li>
+            <li><NavLink to="/dash-board">Dashboard</NavLink></li>
+        </>
+    );
 
     const handleLogOut = () => {
         logOut();
-    }
+    };
 
     return (
-        <div className="navbar bg-base-100 shadow-sm">
+        <div className="navbar bg-base-100 shadow-sm px-4">
+            {/* Navbar Start */}
             <div className="navbar-start">
                 <div className="dropdown">
                     <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
-                        <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"> <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /> </svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none"
+                            viewBox="0 0 24 24" stroke="currentColor">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2"
+                                d="M4 6h16M4 12h8m-8 6h16" />
+                        </svg>
                     </div>
-                    <ul
-                        tabIndex={0}
-                        className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
-                        {
-                            links
-                        }
+                    <ul tabIndex={0} className="menu menu-sm dropdown-content bg-base-100 rounded-box z-50 mt-3 w-52 p-2 shadow">
+                        {links}
                     </ul>
                 </div>
-                <section className=" text-xl">
-                    <MetroNest></MetroNest>
+                <section className="text-xl font-bold text-blue-600">
+                    <MetroNest />
                 </section>
             </div>
+
+            {/* Navbar Center */}
             <div className="navbar-center hidden lg:flex">
-                <ul className="menu menu-horizontal px-1">
-                    {
-                        links
-                    }
+                <ul className="menu menu-horizontal px-1 space-x-2">
+                    {links}
                 </ul>
             </div>
-            <div className="navbar-end">
+
+            {/* Navbar End */}
+            <div className="navbar-end space-x-4">
                 {
-                    user ? <button onClick={handleLogOut} className='btn btn-primary text-white  bg-[#1a8cff] p-3'>Logout</button>
-                        :
-                        <Link to='login' className='btn  text-white p-3 bg-[#1a8cff]' >Login</Link>
+                    user ? (
+                        <div className="flex items-center gap-2">
+                            <img
+                                src={user?.photoURL}
+                                alt="User"
+                                className="w-10 h-10 rounded-full border border-gray-300 object-cover"
+                            />
+                            <span className="hidden md:inline font-medium text-sm">{user?.displayName}</span>
+                            <button
+                                onClick={handleLogOut}
+                                className="btn btn-sm bg-blue-600 hover:bg-red-600 text-white px-3">
+                                Logout
+                            </button>
+                        </div>
+                    ) : (
+                        <Link to="/login" className="btn btn-sm text-white bg-[#1a8cff] hover:bg-[#0077e6]">
+                            Login
+                        </Link>
+                    )
                 }
             </div>
         </div>
     );
 };
+
 export default Navbar;

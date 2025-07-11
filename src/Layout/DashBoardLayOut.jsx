@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link, Outlet } from 'react-router';
-import { FaBars, FaHome, FaUser, FaList, FaSignOutAlt, FaUserCircle, FaHeart, FaShoppingCart, FaCommentDots } from 'react-icons/fa';
+import { FaBars, FaHome, FaUser, FaList, FaSignOutAlt, FaUserCircle, FaHeart, FaShoppingCart, FaCommentDots, FaPlus, FaBuilding, FaHandshake, FaClipboardList } from 'react-icons/fa';
 
 const DashboardLayout = () => {
     return (
@@ -29,7 +29,18 @@ const DashboardLayout = () => {
                     <li><Link to="/dashboard/profile"><FaUserCircle className='text-blue-600' /> My Profile</Link></li>
                     <li><Link to="/dashboard/wishlist"><FaHeart className='text-red-600' /> Wishlist</Link></li>
                     <li><Link to="/dashboard/purchased"><FaShoppingCart className='text-blue-600' /> Property Bought</Link></li>
-                    <li><Link to="/dashboard/reviews"><FaCommentDots className='text-blue-600'/> My Reviews</Link></li>
+                    <li><Link to="/dashboard/reviews"><FaCommentDots className='text-blue-600' /> My Reviews</Link></li>
+
+
+                    {/* ✅ Agent-only Links */}
+                        <>
+                            <div className="divider">Agent Panel</div>
+                            <li><Link to="/dashboard/agent-profile"><FaUserCircle className='text-purple-600' /> Agent Profile</Link></li>
+                            <li><Link to="/dashboard/add-property"><FaPlus className='text-green-600' /> Add Property</Link></li>
+                            <li><Link to="/dashboard/my-added-properties"><FaBuilding className='text-blue-600' /> My Added Properties</Link></li>
+                            <li><Link to="/dashboard/my-sold-properties"><FaHandshake className='text-yellow-600' /> My Sold Properties</Link></li>
+                            <li><Link to="/dashboard/requested-properties"><FaClipboardList className='text-pink-600' /> Requested Properties</Link></li>
+                        </>
                 </ul>
             </div>
         </div>
