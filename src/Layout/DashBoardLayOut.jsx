@@ -33,14 +33,14 @@ const DashboardLayout = () => {
 
 
                     {/* ✅ Agent-only Links */}
-                        <>
-                            <div className="divider">Agent Panel</div>
-                            <li><Link to="agent-profile"><FaUserCircle className='text-purple-600' /> Agent Profile</Link></li>
-                            <li><Link to="/dashboard/add-property"><FaPlus className='text-green-600' /> Add Property</Link></li>
-                            <li><Link to="/dashboard/my-added-properties"><FaBuilding className='text-blue-600' /> My Added Properties</Link></li>
-                            <li><Link to="/dashboard/my-sold-properties"><FaHandshake className='text-yellow-600' /> My Sold Properties</Link></li>
-                            <li><Link to="/dashboard/requested-properties"><FaClipboardList className='text-pink-600' /> Requested Properties</Link></li>
-                        </>
+                    <>
+                        <div className="divider">Agent Panel</div>
+                        <li><Link to="agent-profile"><FaUserCircle className='text-purple-600' /> Agent Profile</Link></li>
+                        <li><Link to="add-property"><FaPlus className='text-green-600' /> Add Property</Link></li>
+                        <li><Link to="my-added-properties"><FaBuilding className='text-blue-600' /> My Added Properties</Link></li>
+                        <li><Link to="my-sold-properties"><FaHandshake className='text-yellow-600' /> My Sold Properties</Link></li>
+                        <li><Link to="requested-properties"><FaClipboardList className='text-pink-600' /> Requested Properties</Link></li>
+                    </>
                 </ul>
             </div>
         </div>

@@ -11,6 +11,7 @@ import Error from '../Error/Error'
 import DashboardLayout from '../Layout/DashBoardLayOut';
 import PrivateRoute from '../PrivateRoute/PrivateRoute';
 import AgentProfile from '../DashBoard/AgentBoard/AgentProfile';
+import AddProperty from '../DashBoard/AgentBoard/AddProperty';
 export const router = createBrowserRouter([
     {
         path: "/",
@@ -42,6 +43,10 @@ export const router = createBrowserRouter([
             {
                 path :'agent-profile',
                 Component : AgentProfile
+            },
+            {
+                path:'add-property',
+                Component: AddProperty
             }
         ]
     }
