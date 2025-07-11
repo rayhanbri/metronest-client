@@ -12,6 +12,8 @@ import DashboardLayout from '../Layout/DashBoardLayOut';
 import PrivateRoute from '../PrivateRoute/PrivateRoute';
 import AgentProfile from '../DashBoard/AgentBoard/AgentProfile';
 import AddProperty from '../DashBoard/AgentBoard/AddProperty';
+import MyAddedProperties from '../DashBoard/AgentBoard/MyAddedProperties';
+import UpdateProperty from '../DashBoard/AgentBoard/UpdateProperty';
 export const router = createBrowserRouter([
     {
         path: "/",
@@ -47,6 +49,14 @@ export const router = createBrowserRouter([
             {
                 path:'add-property',
                 Component: AddProperty
+            },
+            {
+                path :'my-added-properties',
+                Component: MyAddedProperties
+            },
+            {
+                path:'update-property/:id',
+               Component: UpdateProperty
             }
         ]
     }
