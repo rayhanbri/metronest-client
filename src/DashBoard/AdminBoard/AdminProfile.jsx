@@ -20,10 +20,6 @@ const UserProfile = () => {
                     <span className="mt-2 badge badge-success capitalize">Role: {role}</span>
                 )}
             </div>
-            <div>
-                <h1 className='text-blue-600 font-bold font-sans'>Buy Your Property!!</h1>
-            </div>
-
             {
                 user?.metadata?.lastSignInTime && user?.metadata?.creationTime &&
                 <div className="mt-6 border-t pt-4 text-gray-700 space-y-2">
