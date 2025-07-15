@@ -1,5 +1,5 @@
 import React from 'react';
-import { useQuery, useMutation } from '@tanstack/react-query';
+import { useQuery} from '@tanstack/react-query';
 import useAxiosSecure from '../../Hooks/useAxiosSecure';
 import useAuth from '../../Hooks/useAuth';
 import Swal from 'sweetalert2';
@@ -34,6 +34,7 @@ const RequestedProperties = () => {
             Swal.fire('Rejected!', 'Offer has been rejected.', 'success');
             refetch();
         } catch (err) {
+            console.log(err)
             Swal.fire('Error', 'Something went wrong', 'error');
         }
     };

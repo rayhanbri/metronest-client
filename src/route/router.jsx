@@ -22,6 +22,9 @@ import PropertyDetails from '../Pages/PropertyDetails/PropertyDetails';
 import Wishlist from '../DashBoard/User/Wishlist';
 import MakeOffer from '../DashBoard/User/MakeOffer';
 import RequestedProperties from '../DashBoard/AgentBoard/RequestedProperties';
+import PropertyBought from '../DashBoard/User/PropertyBought';
+import Payment from '../DashBoard/Payment/Payment';
+import MySoldProperties from '../DashBoard/AgentBoard/MySoldProperties';
 export const router = createBrowserRouter([
     {
         path: "/",
@@ -74,6 +77,10 @@ export const router = createBrowserRouter([
                 path:'requested-properties',
                 Component: RequestedProperties
             },
+            {
+                path:'my-sold-properties',
+                Component:MySoldProperties
+            },
             // user route 
             {
                 path:'user-profile',
@@ -87,6 +94,14 @@ export const router = createBrowserRouter([
                 path: 'make-offer/:id',
                 Component: MakeOffer
 
+            },
+            {
+             path :'payment/:id',
+             Component:Payment 
+            },
+            {
+                path:'property-bought',
+                Component: PropertyBought
             },
             //admin route 
             {

@@ -1,11 +1,11 @@
 import axios from 'axios';
 import { useEffect } from 'react';
 import { getIdToken } from 'firebase/auth';
-import { auth } from '../Firebase/firebase_init'; // your Firebase config
+import { auth } from '../Firebase/firebase_init'; 
 import { useNavigate } from 'react-router';
 
 const axiosSecure = axios.create({
-    baseURL: 'http://localhost:3000', // 🔁 replace with your backend URL
+    baseURL: 'http://localhost:3000', 
 });
 
 const useAxiosSecure = () => {

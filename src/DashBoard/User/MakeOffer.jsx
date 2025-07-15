@@ -22,6 +22,8 @@ const MakeOffer = () => {
             });
         });
     }, [id, axiosSecure]);
+  
+    //  console.log(property.image)
 
 
     const handleOffer = async (e) => {
@@ -36,6 +38,7 @@ const MakeOffer = () => {
             propertyId: property._id,
             propertyTitle: property.title,
             propertyLocation: property.location,
+            propertyImage: property.image,
             agentName: property.agentName,
             agentEmail: property.agentEmail,
             buyerName: user.displayName,
