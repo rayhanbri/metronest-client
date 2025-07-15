@@ -17,6 +17,7 @@ import UpdateProperty from '../DashBoard/AgentBoard/UpdateProperty';
 import UserProfile from '../DashBoard/User/UserProfile';
 import AdminProfile from '../DashBoard/AdminBoard/AdminProfile';
 import ManageProperties from '../DashBoard/AdminBoard/ManageProperties';
+import ManageUsers from '../DashBoard/AdminBoard/ManageUsers';
 export const router = createBrowserRouter([
     {
         path: "/",
@@ -74,6 +75,10 @@ export const router = createBrowserRouter([
             {
                 path: 'manage-properties',
                 Component: ManageProperties
+            },
+            {
+                path: 'manage-users',
+                Component: ManageUsers
             }
         ]
     }

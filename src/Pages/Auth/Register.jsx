@@ -48,6 +48,7 @@ const Register = () => {
                 name: data.name,
                 email: data.email,
                 role: 'user',
+                image:imageUrl,
                 created_at: new Date().toISOString(),
                 last_log_in: new Date().toISOString()
             };

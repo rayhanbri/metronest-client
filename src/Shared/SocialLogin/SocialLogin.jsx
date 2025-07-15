@@ -5,12 +5,10 @@ import { GoogleAuthProvider } from 'firebase/auth/web-extension';
 import { useNavigate } from 'react-router';
 import useAxios from '../../Hooks/useAxios';
 
-const SocialLogin = ({from}) => {
+const SocialLogin = ({ from }) => {
     const navigate = useNavigate();
     const axiosInstance = useAxios();
-
     const provider = new GoogleAuthProvider();
-
     // Explicitly request email
     provider.addScope('email');
 
@@ -25,15 +23,17 @@ const SocialLogin = ({from}) => {
             .then(async (result) => {
                 console.log(result.user)
                 console.log(result.user.providerData[0]?.email)
-                 const userInfo = {
+                const userInfo = {
                     email: result.user.providerData[0]?.email || result.user?.email,
+                    name: result.user.displayName,
                     role: 'user', // default
+                    image: result.user.photoURL,
                     created_at: new Date().toISOString(),
                     last_log_in: new Date().toISOString()
                 }
                 const user = await axiosInstance.post('/users', userInfo);
                 console.log(user.data)
-                
+
                 Swal.fire({
                     icon: 'success',
                     title: 'Login Successfull',

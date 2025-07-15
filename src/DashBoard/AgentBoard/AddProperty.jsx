@@ -18,7 +18,6 @@ const AddProperty = () => {
 
     const imageFile = watch('image');
     const priceMin = watch('priceMin');
-
     const onSubmit = async (data) => {
         try {
             // 1. Upload image to Cloudinary
@@ -42,6 +41,7 @@ const AddProperty = () => {
                 priceMax: Number(data.priceMax),
                 agentName: user.displayName,
                 agentEmail: user.email,
+                agentImage:user.photoURL,
                 status:'pending',
                 createdAt: new Date().toISOString(),
             };
