@@ -21,6 +21,7 @@ import ManageUsers from '../DashBoard/AdminBoard/ManageUsers';
 import PropertyDetails from '../Pages/PropertyDetails/PropertyDetails';
 import Wishlist from '../DashBoard/User/Wishlist';
 import MakeOffer from '../DashBoard/User/MakeOffer';
+import RequestedProperties from '../DashBoard/AgentBoard/RequestedProperties';
 export const router = createBrowserRouter([
     {
         path: "/",
@@ -68,6 +69,10 @@ export const router = createBrowserRouter([
             {
                 path:'update-property/:id',
                Component: UpdateProperty
+            },
+            {
+                path:'requested-properties',
+                Component: RequestedProperties
             },
             // user route 
             {
