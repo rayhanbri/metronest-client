@@ -48,7 +48,7 @@ const DashboardLayout = () => {
                         <>
                             <div className="divider">User Panel</div>
                             < li > <Link to="user-profile"><FaUserCircle className='text-blue-600' /> My Profile</Link></li>
-                            <li><Link to="/dashboard/wishlist"><FaHeart className='text-red-600' /> Wishlist</Link></li>
+                            <li><Link to="wishlist"><FaHeart className='text-red-600' /> Wishlist</Link></li>
                             <li><Link to="/dashboard/purchased"><FaShoppingCart className='text-blue-600' /> Property Bought</Link></li>
                             <li><Link to="/dashboard/reviews"><FaCommentDots className='text-blue-600' /> My Reviews</Link></li>
                         </>

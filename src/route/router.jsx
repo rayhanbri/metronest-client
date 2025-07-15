@@ -19,6 +19,8 @@ import AdminProfile from '../DashBoard/AdminBoard/AdminProfile';
 import ManageProperties from '../DashBoard/AdminBoard/ManageProperties';
 import ManageUsers from '../DashBoard/AdminBoard/ManageUsers';
 import PropertyDetails from '../Pages/PropertyDetails/PropertyDetails';
+import Wishlist from '../DashBoard/User/Wishlist';
+import MakeOffer from '../DashBoard/User/MakeOffer';
 export const router = createBrowserRouter([
     {
         path: "/",
@@ -72,6 +74,15 @@ export const router = createBrowserRouter([
                 path:'user-profile',
                 Component:UserProfile
             },
+            {
+                path:'wishlist',
+                Component:Wishlist
+            },
+            {
+                path: 'make-offer/:id',
+                Component: MakeOffer
+
+            }
             //admin route 
             {
                 path:'admin-profile',

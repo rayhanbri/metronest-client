@@ -27,8 +27,13 @@ const PropertyDetails = () => {
                 propertyInfo: {
                     title: property.title,
                     image: property.image,
+                    location: property.location,
+                    agentName: property.agentName,
+                    agentImage: property.agentImage,
+                    agentEmail: property.agentEmail,
+                    propertyStatus: property.status,
                     priceMin: property.priceMin,
-                    priceMax: property.priceMax
+                    priceMax: property.priceMax,
                 }
             });
             Swal.fire('Added!', 'Property added to wishlist.', 'success');
