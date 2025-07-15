@@ -82,7 +82,7 @@ export const router = createBrowserRouter([
                 path: 'make-offer/:id',
                 Component: MakeOffer
 
-            }
+            },
             //admin route 
             {
                 path:'admin-profile',

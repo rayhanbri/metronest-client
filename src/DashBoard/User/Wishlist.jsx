@@ -80,7 +80,7 @@ const Wishlist = () => {
                                     <div className="card-actions justify-between mt-4">
                                         <button
                                             className="btn btn-sm bg-blue-600 text-white"
-                                            onClick={() => navigate(`/dashboard/make-offer/${item._id}`)}
+                                            onClick={() => navigate(`/dash-board/make-offer/${item._id}`)}
                                         >
                                             Make an Offer
                                         </button>
