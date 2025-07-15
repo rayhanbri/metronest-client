@@ -34,7 +34,7 @@ const AllProperties = () => {
             </div>
             <p className="text-sm">💰 Price Range: ${property.priceMin} - ${property.priceMax}</p>
             <span className="badge badge-success mt-2">✅ Verified</span>
-            <Link to={`/property-details/${property._id}`}>
+            <Link to={`/propertyDetails/${property._id}`}>
               <button className="btn btn-sm mt-4 w-full bg-blue-600 text-white">Details</button>
             </Link>
           </div>

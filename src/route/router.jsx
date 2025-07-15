@@ -18,6 +18,7 @@ import UserProfile from '../DashBoard/User/UserProfile';
 import AdminProfile from '../DashBoard/AdminBoard/AdminProfile';
 import ManageProperties from '../DashBoard/AdminBoard/ManageProperties';
 import ManageUsers from '../DashBoard/AdminBoard/ManageUsers';
+import PropertyDetails from '../Pages/PropertyDetails/PropertyDetails';
 export const router = createBrowserRouter([
     {
         path: "/",
@@ -39,6 +40,10 @@ export const router = createBrowserRouter([
             {
                 path:'register',
                 Component: Register
+            },
+            {
+                path : 'propertyDetails/:id',
+               element: <PrivateRoute><PropertyDetails></PropertyDetails></PrivateRoute>
             }
         ]
     },
