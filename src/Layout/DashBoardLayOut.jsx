@@ -50,7 +50,7 @@ const DashboardLayout = () => {
                             < li > <Link to="user-profile"><FaUserCircle className='text-blue-600' /> My Profile</Link></li>
                             <li><Link to="wishlist"><FaHeart className='text-red-600' /> Wishlist</Link></li>
                             <li><Link to="property-bought"><FaShoppingCart className='text-blue-600' /> Property Bought</Link></li>
-                            <li><Link to="/dashboard/reviews"><FaCommentDots className='text-blue-600' /> My Reviews</Link></li>
+                            <li><Link to="my-reviews"><FaCommentDots className='text-blue-600' /> My Reviews</Link></li>
                         </>
                     }
                     {/* ✅ Agent-only Links */}

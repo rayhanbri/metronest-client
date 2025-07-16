@@ -42,6 +42,8 @@ const PropertyDetails = () => {
         }
     };
 
+    // console.log(property.title,property.agentName)
+
     return (
         <div className="px-4 max-w-5xl mx-auto">
             <img src={property.image} alt="Property" className="w-full h-96 object-cover mb-4 rounded" />
@@ -78,6 +80,8 @@ const PropertyDetails = () => {
             {showReviewModal && (
                 <AddReviewModal
                     propertyId={id}
+                    title={property.title}
+                    agentName={property.agentName}
                     setShowModal={setShowReviewModal}
                     refetchReviews={() => axiosSecure.get(`/reviews/${id}`).then(res => setReviews(res.data))}
                 />

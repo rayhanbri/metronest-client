@@ -18,6 +18,8 @@ const Navbar = () => {
         logOut();
     };
 
+    // console.log(user.photoURL)
+
     return (
         <div className="navbar bg-base-100 shadow-sm px-4">
             {/* Navbar Start */}

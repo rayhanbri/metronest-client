@@ -12,7 +12,7 @@ const Wishlist = () => {
 
     const email = user?.email || user.providerData[0]?.email;
 
-    // ✅ Load wishlist items for logged-in user
+    //  Load wishlist items for logged-in user
     const { data: wishlist = [], refetch } = useQuery({
         enabled: !!email,
         queryKey: ['wishlist', email],
@@ -22,7 +22,7 @@ const Wishlist = () => {
         }
     });
 
-    // ✅ Remove property from wishlist
+    // Remove property from wishlist
     const removeFromWishlist = async (id) => {
         try {
             const res = await axiosSecure.delete(`/wishlist/${id}`);

@@ -4,11 +4,13 @@ import useAuth from '../../Hooks/useAuth';
 import Swal from 'sweetalert2';
 import useRole from '../../Hooks/useRole';
 
-const AddReviewModal = ({ propertyId, setShowModal, refetchReviews }) => {
+const AddReviewModal = ({ title,agentName,propertyId, setShowModal, refetchReviews }) => {
     const [reviewText, setReviewText] = useState('');
     const axiosSecure = useAxiosSecure();
     const { user } = useAuth();
     const { role } = useRole();
+
+    // console.log(title,agentName)
 
 
     const handleSubmit = async () => {
@@ -18,6 +20,8 @@ const AddReviewModal = ({ propertyId, setShowModal, refetchReviews }) => {
                 userEmail: user.email || user.providerData[0]?.email,
                 userName: user.displayName,
                 userPhoto: user.photoURL,
+                title,
+                agentName,
                 reviewText,
                 role
             });

@@ -3,13 +3,16 @@ import Banner from '../Pages/Home/Banner';
 import WhyMetro from '../Pages/Home/WhyMetro';
 import MetroStats from '../Pages/Home/MetroStats';
 import Spinner from '../Spinner/Spinner';
+import LatestReviews from '../Pages/Home/LatestReviews';
 
 const HomeLayout = () => {
     return (
         <div>
-           <Banner></Banner>
-           <WhyMetro></WhyMetro>
-           <MetroStats></MetroStats>
+            <Banner></Banner>
+            <LatestReviews></LatestReviews>
+            <WhyMetro></WhyMetro>
+            <MetroStats></MetroStats>
+            
         </div>
     );
 };
