@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link, Outlet } from 'react-router';
-import { FaBars, FaHome, FaUser, FaList, FaSignOutAlt, FaUserCircle, FaHeart, FaShoppingCart, FaCommentDots, FaPlus, FaBuilding, FaHandshake, FaClipboardList, FaUserShield, FaTools, FaUsersCog, FaComments } from 'react-icons/fa';
+import { FaBars, FaHome, FaUser, FaList, FaSignOutAlt, FaUserCircle, FaHeart, FaShoppingCart, FaCommentDots, FaPlus, FaBuilding, FaHandshake, FaClipboardList, FaUserShield, FaTools, FaUsersCog, FaComments, FaBullhorn } from 'react-icons/fa';
 import useRole from '../Hooks/useRole';
 import Spinner from '../Spinner/Spinner';
 import MetroNest from '../Shared/MetroNest/MetroNest';
@@ -40,6 +40,11 @@ const DashboardLayout = () => {
                             <li><Link to="manage-properties"><FaTools className='text-green-600' /> Manage Properties</Link></li>
                             <li><Link to="manage-users"><FaUsersCog className='text-blue-600' /> Manage Users</Link></li>
                             <li><Link to="manage-reviews"><FaComments className='text-pink-600' /> Manage Reviews</Link></li>
+                            <li>
+                                <Link to="advertise-property">
+                                    <FaBullhorn className="text-orange-600" /> Advertise Property
+                                </Link>
+                            </li>
                         </>
                     }
                     {/* user links  */}

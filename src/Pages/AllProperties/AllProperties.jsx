@@ -24,14 +24,14 @@ const AllProperties = () => {
   useEffect(() => {
     let filtered = properties;
 
-    // 🔍 Filter by location
+    //  Filter by location
     if (searchText) {
       filtered = filtered.filter(p =>
         p.location.toLowerCase().includes(searchText.toLowerCase())
       );
     }
 
-    // 🔃 Sort by priceMin
+    //  Sort by priceMin
     if (sortOrder === 'asc') {
       filtered = [...filtered].sort((a, b) => a.priceMin - b.priceMin);
     } else if (sortOrder === 'desc') {
@@ -45,7 +45,7 @@ const AllProperties = () => {
 
   return (
     <div className="px-6 py-8">
-      {/* 🔍 Search & Sort Panel */}
+      {/*  Search & Sort Panel */}
       <div className="flex flex-col md:flex-row items-center justify-between mb-6 gap-4">
         <input
           type="text"
@@ -65,7 +65,7 @@ const AllProperties = () => {
         </select>
       </div>
 
-      {/* 🏡 Property Cards */}
+      {/* Property Cards */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {filteredProperties.map((property) => (
           <div key={property._id} className="card shadow-md border rounded-md overflow-hidden">

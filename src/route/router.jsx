@@ -27,6 +27,7 @@ import Payment from '../DashBoard/Payment/Payment';
 import MySoldProperties from '../DashBoard/AgentBoard/MySoldProperties';
 import MyReviews from '../DashBoard/User/MyReviews';
 import ManageReviews from '../DashBoard/AdminBoard/ManageReviews';
+import AdvertiseProperty from '../DashBoard/AdminBoard/AdvertiseProperty';
 export const router = createBrowserRouter([
     {
         path: "/",
@@ -125,6 +126,10 @@ export const router = createBrowserRouter([
             {
                 path : 'manage-reviews',
                 Component: ManageReviews
+            },
+            {
+                path:'advertise-property',
+                Component: AdvertiseProperty
             }
         ]
     }
