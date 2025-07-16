@@ -28,70 +28,76 @@ import MySoldProperties from '../DashBoard/AgentBoard/MySoldProperties';
 import MyReviews from '../DashBoard/User/MyReviews';
 import ManageReviews from '../DashBoard/AdminBoard/ManageReviews';
 import AdvertiseProperty from '../DashBoard/AdminBoard/AdvertiseProperty';
+import Forbidden from '../Pages/Forbidden/Forbidden';
+import AdminRoute from './AdminRoute';
 export const router = createBrowserRouter([
     {
         path: "/",
         Component: RootLayout,
-        errorElement: <Error/>  ,
+        errorElement: <Error />,
         children: [
             {
                 index: true,
                 Component: HomeLayout
             },
             {
-                path:'allProperties',
-               element:<PrivateRoute><AllProperties></AllProperties></PrivateRoute>
+                path: 'allProperties',
+                element: <PrivateRoute><AllProperties></AllProperties></PrivateRoute>
             },
             {
                 path: 'login',
                 Component: Login
             },
             {
-                path:'register',
+                path: 'register',
                 Component: Register
             },
             {
-                path : 'propertyDetails/:id',
-               element: <PrivateRoute><PropertyDetails></PropertyDetails></PrivateRoute>
-            }
+                path: 'propertyDetails/:id',
+                element: <PrivateRoute><PropertyDetails></PropertyDetails></PrivateRoute>
+            },
         ]
     },
     {
+        path: 'forbidden',
+        Component: Forbidden
+    },
+    {
         path: 'dash-board',
-        element:<PrivateRoute><DashboardLayout></DashboardLayout></PrivateRoute>,
-        children:[
+        element: <PrivateRoute><DashboardLayout></DashboardLayout></PrivateRoute>,
+        children: [
             {
-                path :'agent-profile',
-                Component : AgentProfile
+                path: 'agent-profile',
+                Component: AgentProfile
             },
             {
-                path:'add-property',
+                path: 'add-property',
                 Component: AddProperty
             },
             {
-                path :'my-added-properties',
+                path: 'my-added-properties',
                 Component: MyAddedProperties
             },
             {
-                path:'update-property/:id',
-               Component: UpdateProperty
+                path: 'update-property/:id',
+                Component: UpdateProperty
             },
             {
-                path:'requested-properties',
+                path: 'requested-properties',
                 Component: RequestedProperties
             },
             {
-                path:'my-sold-properties',
-                Component:MySoldProperties
+                path: 'my-sold-properties',
+                Component: MySoldProperties
             },
             // user route 
             {
-                path:'user-profile',
-                Component:UserProfile
+                path: 'user-profile',
+                Component: UserProfile
             },
             {
-                path:'wishlist',
-                Component:Wishlist
+                path: 'wishlist',
+                Component: Wishlist
             },
             {
                 path: 'make-offer/:id',
@@ -99,41 +105,42 @@ export const router = createBrowserRouter([
 
             },
             {
-             path :'payment/:id',
-             Component:Payment 
+                path: 'payment/:id',
+                Component: Payment
             },
             {
-                path:'property-bought',
+                path: 'property-bought',
                 Component: PropertyBought
             },
             {
-                path : 'my-reviews',
-                Component:MyReviews
+                path: 'my-reviews',
+                Component: MyReviews
             },
             //admin route 
             {
-                path:'admin-profile',
-                Component:AdminProfile
+                path: 'admin-profile',
+                element:<AdminRoute><AdminProfile></AdminProfile></AdminRoute>
             },
             {
                 path: 'manage-properties',
-                Component: ManageProperties
+                element:<AdminRoute><ManageProperties></ManageProperties></AdminRoute>
             },
             {
                 path: 'manage-users',
-                Component: ManageUsers
+                element:<AdminRoute><ManageUsers></ManageUsers></AdminRoute>   
+               
             },
             {
-                path : 'manage-reviews',
-                Component: ManageReviews
+                path: 'manage-reviews',
+                element:<AdminRoute><ManageReviews></ManageReviews></AdminRoute>
             },
             {
-                path:'advertise-property',
-                Component: AdvertiseProperty
+                path: 'advertise-property',
+                element:<AdminRoute><AdvertiseProperty></AdvertiseProperty></AdminRoute>
             }
         ]
     }
-   
+
 ]);
 
 
