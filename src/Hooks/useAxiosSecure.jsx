@@ -28,7 +28,7 @@ const useAxiosSecure = () => {
             (res) => res,
             (err) => {
                 if (err.response && (err.response.status === 401 || err.response.status === 403)) {
-                    navigate('/login'); // 🔐 redirect on unauthorized
+                    navigate('/login'); 
                 }
                 return Promise.reject(err);
             }

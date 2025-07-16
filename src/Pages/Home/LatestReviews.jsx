@@ -18,7 +18,7 @@ const LatestReviews = () => {
 
     return (
         <div className="p-6">
-            <h2 className="text-2xl font-bold mb-4 text-blue-600">Latest User Reviews</h2>
+            <h2 className="text-3xl font-bold mb-4 ">Latest <span className='text-blue-600'> User</span> Reviews</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 {reviews.map((review) => (
                     <div key={review._id} className="p-4 border border-blue-600 rounded shadow-amber-100 bg-white">

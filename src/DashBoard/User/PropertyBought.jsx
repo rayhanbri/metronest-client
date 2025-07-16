@@ -12,7 +12,7 @@ const PropertyBought = () => {
 
     const email = user?.email || user.providerData[0]?.email;
 
-    // ✅ Load all offers made by this user
+    //  Load all offers made by this user
     const { data: offers = [], isLoading } = useQuery({
         enabled: !!email,
         queryKey: ['offers', email],
@@ -53,7 +53,7 @@ const PropertyBought = () => {
                                     </span>
                                 </p>
 
-                                {/* ✅ Show Pay button if accepted and not yet paid */}
+                                {/* Show Pay button if accepted and not yet paid */}
                                 {offer.status === 'accepted' && !offer.transactionId && (
                                     <button
                                         onClick={() => navigate(`/dash-board/payment/${offer._id}`)}
@@ -63,7 +63,7 @@ const PropertyBought = () => {
                                     </button>
                                 )}
 
-                                {/* ✅ Show transaction ID if paid */}
+                                {/*  Show transaction ID if paid */}
                                 {offer.status === 'bought' && offer.transactionId && (
                                     <p className="text-sm mt-2 text-green-600 font-semibold">
                                         Transaction ID: {offer.transactionId}

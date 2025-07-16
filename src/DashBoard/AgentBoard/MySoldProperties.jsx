@@ -20,16 +20,25 @@ const MySoldProperties = () => {
 
     if (isLoading) return <p className="text-center py-10">Loading...</p>;
 
+    // calculate total sold amount
+    const totalAmount = soldProperties.reduce((sum, property) => sum + property.offerAmount, 0);
+
     return (
         <div className="p-4">
             <h2 className="text-2xl font-bold mb-6 text-center">My Sold Properties</h2>
+
+            {/* Total Sold Amount Box */}
+            <div className="bg-green-100 border border-green-400 text-green-700 rounded-md p-4 mb-6 text-center">
+                <h3 className="text-lg font-semibold">Total Sold Amount: <span className="text-green-900">${totalAmount.toFixed(2)}</span></h3>
+            </div>
+
             {soldProperties.length === 0 ? (
                 <p className="text-center">No properties sold yet.</p>
             ) : (
                 <div className="overflow-x-auto">
                     <table className="table w-full">
                         <thead>
-                            <tr className="bg-gray-200">
+                            <tr className="bg-gray-200 text-gray-800">
                                 <th>#</th>
                                 <th>Title</th>
                                 <th>Location</th>
