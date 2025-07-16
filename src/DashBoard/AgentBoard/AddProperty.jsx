@@ -32,6 +32,8 @@ const AddProperty = () => {
 
             const imageUrl = cloudinaryRes.data.secure_url;
 
+            const email = user.email || user.providerData[0]?.email;
+
             // 2. Prepare property data
             const propertyData = {
                 title: data.title,
@@ -40,9 +42,9 @@ const AddProperty = () => {
                 priceMin: Number(data.priceMin),
                 priceMax: Number(data.priceMax),
                 agentName: user.displayName,
-                agentEmail: user.email,
-                agentImage:user.photoURL,
-                status:'pending',
+                agentEmail: email,
+                agentImage: user.photoURL,
+                status: 'pending',
                 createdAt: new Date().toISOString(),
             };
 
@@ -140,7 +142,7 @@ const AddProperty = () => {
                     </label>
                     <input
                         type="email"
-                        value={user?.email || ''}
+                        value={user?.email || user.providerData[0]?.email}
                         readOnly
                         className="input input-bordered w-full bg-gray-100 cursor-not-allowed"
                     />

@@ -10,12 +10,14 @@ const MyAddedProperties = () => {
     const axiosSecure = useAxiosSecure();
     const { user } = useAuth();
 
+    const email = user?.email || user.providerData[0]?.email;
+
     // Fetch properties by email
     const { data: properties = [], refetch, isLoading } = useQuery({
-        queryKey: ['my-properties', user?.email],
-        enabled: !!user?.email,
+        queryKey: ['my-properties', email],
+        enabled: !!email,
         queryFn: async () => {
-            const res = await axiosSecure.get(`/properties?email=${user.email}`);
+            const res = await axiosSecure.get(`/properties?email=${email}`);
             return res.data;
         }
     });

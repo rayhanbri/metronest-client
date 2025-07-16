@@ -26,6 +26,7 @@ import PropertyBought from '../DashBoard/User/PropertyBought';
 import Payment from '../DashBoard/Payment/Payment';
 import MySoldProperties from '../DashBoard/AgentBoard/MySoldProperties';
 import MyReviews from '../DashBoard/User/MyReviews';
+import ManageReviews from '../DashBoard/AdminBoard/ManageReviews';
 export const router = createBrowserRouter([
     {
         path: "/",
@@ -120,6 +121,10 @@ export const router = createBrowserRouter([
             {
                 path: 'manage-users',
                 Component: ManageUsers
+            },
+            {
+                path : 'manage-reviews',
+                Component: ManageReviews
             }
         ]
     }

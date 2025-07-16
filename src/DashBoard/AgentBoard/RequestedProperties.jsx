@@ -7,11 +7,12 @@ import Swal from 'sweetalert2';
 const RequestedProperties = () => {
     const axiosSecure = useAxiosSecure();
     const { user } = useAuth();
-
+    const email = user?.email || user.providerData[0]?.email;
+    
     const { data: offers = [], refetch } = useQuery({
-        queryKey: ['offers', user?.email],
+        queryKey: ['offers', email],
         queryFn: async () => {
-            const res = await axiosSecure.get(`/offers/agent/${user.email}`);
+            const res = await axiosSecure.get(`/offers/agent/${email}`);
             return res.data;
         },
         enabled: !!user?.email

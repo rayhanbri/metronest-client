@@ -53,7 +53,7 @@ const DashboardLayout = () => {
                             <li><Link to="my-reviews"><FaCommentDots className='text-blue-600' /> My Reviews</Link></li>
                         </>
                     }
-                    {/* ✅ Agent-only Links */}
+                    {/* Agent-only Links */}
                     {role === 'agent' &&
                         <>
                             <div className="divider">Agent Panel</div>
@@ -63,7 +63,12 @@ const DashboardLayout = () => {
                             <li><Link to="my-sold-properties"><FaHandshake className='text-yellow-600' /> My Sold Properties</Link></li>
                             <li><Link to="requested-properties"><FaClipboardList className='text-pink-600' /> Requested Properties</Link></li>
                         </>
-
+                    }
+                    {
+                        role === 'fraud' &&
+                        <p className="text-red-500 text-sm mt-4">
+                            ⚠️ Your agent account has been marked as fraudulent. You cannot access agent features.
+                        </p>
                     }
                 </ul>
             </div>

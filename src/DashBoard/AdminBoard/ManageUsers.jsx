@@ -34,6 +34,7 @@ const ManageUsers = () => {
     };
 
     const handleDelete = async (id, email) => {
+        // console.log(email)
         const confirm = await Swal.fire({
             title: 'Are you sure?',
             text: 'This will delete the user and their Firebase account!',

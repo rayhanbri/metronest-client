@@ -7,11 +7,13 @@ const MySoldProperties = () => {
     const { user } = useAuth();
     const axiosSecure = useAxiosSecure();
 
+    const email = user?.email || user.providerData[0]?.email;
+
     const { data: soldProperties = [], isLoading } = useQuery({
-        queryKey: ['soldProperties', user?.email],
-        enabled: !!user?.email,
+        queryKey: ['soldProperties', email],
+        enabled: !!email,
         queryFn: async () => {
-            const res = await axiosSecure.get(`/sold-properties/${user.email}`);
+            const res = await axiosSecure.get(`/sold-properties/${email}`);
             return res.data;
         }
     });
