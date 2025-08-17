@@ -35,7 +35,7 @@ const Register = () => {
             // ✅ 2. Create user with Firebase
             const userCredential = await createUser(data.email, data.password);
 
-            console.log(userCredential.user)
+            //console.log(userCredential.user)
 
             // ✅ 3. Update profile in Firebase
             await updateUserProfile({

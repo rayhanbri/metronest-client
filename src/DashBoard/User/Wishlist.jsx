@@ -49,7 +49,7 @@ const Wishlist = () => {
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                     {wishlist.map((item) => {
                         const property = item.propertyInfo; // Destructure propertyInfo
-                        console.log(property.agentImage)
+                        //console.log(property.agentImage)
                         return (
                             <div key={item._id} className="card bg-base-100 shadow-xl">
                                 <figure>

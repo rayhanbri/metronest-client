@@ -22,7 +22,7 @@ const Login = () => {
 
         signIn(data.email, data.password)
             .then(res => {
-                console.log(res)
+               // console.log(res)
                 Swal.fire({
                     icon: 'success',
                     title: 'Login Successfull',

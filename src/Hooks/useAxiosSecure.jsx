@@ -5,7 +5,7 @@ import { auth } from '../Firebase/firebase_init';
 import { useNavigate } from 'react-router';
 
 const axiosSecure = axios.create({
-    baseURL: 'http://localhost:3000', 
+    baseURL: 'https://metronest-server.vercel.app', 
 });
 
 const useAxiosSecure = () => {

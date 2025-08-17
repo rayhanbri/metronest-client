@@ -15,7 +15,7 @@ const RequestedProperties = () => {
             const res = await axiosSecure.get(`/offers/agent/${email}`);
             return res.data;
         },
-        enabled: !!user?.email
+        enabled:!!email
     });
 
     const handleAccept = async (id) => {
@@ -24,7 +24,7 @@ const RequestedProperties = () => {
             Swal.fire('Accepted!', 'Offer has been accepted.', 'success');
             refetch();
         } catch (err) {
-            console.log(err)
+            //console.log(err)
             Swal.fire('Error', 'Something went wrong', 'error');
         }
     };
@@ -35,7 +35,7 @@ const RequestedProperties = () => {
             Swal.fire('Rejected!', 'Offer has been rejected.', 'success');
             refetch();
         } catch (err) {
-            console.log(err)
+           // console.log(err)
             Swal.fire('Error', 'Something went wrong', 'error');
         }
     };

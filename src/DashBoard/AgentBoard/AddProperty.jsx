@@ -50,7 +50,7 @@ const AddProperty = () => {
 
             // 3. Save property to backend
             const res = await axiosInstance.post('/properties', propertyData);
-            console.log(res);
+           // console.log(res);
 
             Swal.fire({
                 icon: 'success',

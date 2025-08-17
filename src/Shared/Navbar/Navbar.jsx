@@ -21,7 +21,7 @@ const Navbar = () => {
     // console.log(user.photoURL)
 
     return (
-        <div className="navbar bg-base-100 shadow-sm px-4">
+        <div className="navbar bg-base-100 rounded-xl shadow-sm px-4 sticky top-0 z-50">
             {/* Navbar Start */}
             <div className="navbar-start">
                 <div className="dropdown">
@@ -61,7 +61,7 @@ const Navbar = () => {
                             <span className="hidden md:inline font-medium text-sm">{user?.displayName}</span>
                             <button
                                 onClick={handleLogOut}
-                                className="btn btn-sm bg-blue-600 hover:bg-red-600 text-white px-3">
+                                className="btn btn-sm bg-blue-600 hover:bg-blue-400 text-white px-3">
                                 Logout
                             </button>
                         </div>

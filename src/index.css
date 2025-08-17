@@ -1,2 +1,10 @@
 @import "tailwindcss";
 @plugin "daisyui";
+
+.secondary-color{
+    background-color: #1a8cff;
+}
+
+body {
+  @apply bg-gray-100;
+}

@@ -34,7 +34,7 @@ const PaymentForm = ({ offer }) => {
             card,
         });
 
-        console.log(paymentMethod)
+       // console.log(paymentMethod)
 
         if (error) {
             Swal.fire('Error', error.message, 'error');
@@ -68,7 +68,7 @@ const PaymentForm = ({ offer }) => {
                     Swal.fire('Warning', 'Payment completed but failed to update offer status.', 'warning');
                 }
             } catch (err) {
-                console.log(err)
+               // console.log(err)
                 Swal.fire('Error', 'Payment succeeded but database update failed.', 'error');
             }
             setProcessing(false);

@@ -9,7 +9,7 @@ const DashboardLayout = () => {
     const { role, isLoading } = useRole();
 
     if (isLoading) return <Spinner></Spinner>;
-    console.log(role)
+   // console.log(role)
     return (
         <div className="drawer lg:drawer-open">
             {/* Toggle Button for small screens */}

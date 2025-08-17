@@ -21,8 +21,8 @@ const SocialLogin = ({ from }) => {
     const handleLogin = () => {
         googleLogin()
             .then(async (result) => {
-                console.log(result.user)
-                console.log(result.user.providerData[0]?.email)
+               // console.log(result.user)
+               // console.log(result.user.providerData[0]?.email)
                 const userInfo = {
                     email: result.user.providerData[0]?.email || result.user?.email,
                     name: result.user.displayName,
@@ -32,7 +32,7 @@ const SocialLogin = ({ from }) => {
                     last_log_in: new Date().toISOString()
                 }
                 const user = await axiosInstance.post('/users', userInfo);
-                console.log(user.data)
+               // console.log(user.data)
 
                 Swal.fire({
                     icon: 'success',
@@ -44,7 +44,7 @@ const SocialLogin = ({ from }) => {
                 navigate(from)
             })
             .catch(error => {
-                console.log(error)
+              //  console.log(error)
             })
     }
 

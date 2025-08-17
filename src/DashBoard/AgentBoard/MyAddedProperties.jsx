@@ -40,7 +40,7 @@ const MyAddedProperties = () => {
                     refetch();
                 }
             } catch (error) {
-                console.log(error)
+                //console.log(error)
                 Swal.fire('Error', 'Failed to delete property', 'error');
             }
         }

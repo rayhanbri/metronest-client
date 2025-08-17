@@ -11,7 +11,7 @@ const MyReviews = () => {
 
     const email = user?.email || user.providerData[0]?.email;
 
-    console.log(email)
+   // console.log(email)
 
     const { data: reviews = [], refetch, isLoading } = useQuery({
         queryKey: ['myReviews', email],
