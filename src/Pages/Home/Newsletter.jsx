@@ -6,7 +6,6 @@ const Newsletter = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault()
-        console.log('w')
         Swal.fire({
             icon: 'success',
             title: 'Subscribed Successfully',
@@ -19,7 +18,7 @@ const Newsletter = () => {
     return (
         <section className="py-16 shadow-xl bg-white rounded-xl my-5 ">
             <div className="container mx-auto px-4 text-center">
-                <h2 className="text-3xl text-black font-bold mb-4">Stay Updated!</h2>
+                <h2 className="text-3xl text-black font-bold mb-4">Stay <span className="text-blue-600">Updated!</span></h2>
                 <p className="mb-8 text-black">
                     Subscribe to our newsletter to get the latest properties and offers
                     directly in your inbox.
@@ -28,12 +27,13 @@ const Newsletter = () => {
                 <form className="flex flex-col md:flex-row justify-center items-center gap-4 max-w-2xl mx-auto">
                     <input
                         type="email"
+                        name='email'
                         placeholder="Enter your email"
                         className="input input-bordered w-full md:flex-1 rounded-lg px-4 py-3"
                         required />
                     <button
                         type="submit"
-                        onClick={handleSubmit}
+                        onSubmit={handleSubmit}
                         className="btn secondary-color text-black border-none rounded-lg px-6 py-3 hover:bg-[#1C6EA4] hover:text-white"
                     >
                         Subscribe
