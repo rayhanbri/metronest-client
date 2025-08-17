@@ -16,7 +16,7 @@ const Newsletter = () => {
     }
 
     return (
-        <section className="py-16 shadow-xl bg-white rounded-xl my-5 ">
+        <section className="py-16 shadow-md bg-white rounded-lg my-5 ">
             <div className="container mx-auto px-4 text-center">
                 <h2 className="text-3xl text-black font-bold mb-4">Stay <span className="text-blue-600">Updated!</span></h2>
                 <p className="mb-8 text-black">

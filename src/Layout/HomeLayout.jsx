@@ -8,6 +8,7 @@ import AdvertiseProperty from '../DashBoard/AdminBoard/AdvertiseProperty';
 import AdvertisementSection from '../Pages/Home/AdvertisementSection';
 import Newsletter from '../Pages/Home/Newsletter';
 import HowItWorks from '../Pages/Home/HowItWorks ';
+import FAQ from '../Pages/Home/FAQ';
 
 
 const HomeLayout = () => {
@@ -20,6 +21,7 @@ const HomeLayout = () => {
             <WhyMetro></WhyMetro>
             <MetroStats></MetroStats>
             <Newsletter></Newsletter>
+            <FAQ></FAQ>
         </div>
     );
 };
