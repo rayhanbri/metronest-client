@@ -68,7 +68,7 @@ const AllProperties = () => {
       {/* Property Cards */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {filteredProperties.map((property) => (
-          <div key={property._id} className="card shadow-md border rounded-md overflow-hidden">
+          <div key={property._id} className="card shadow-md bg-base-100 rounded-lg overflow-hidden ">
             <img src={property.image} alt={property.title} className="h-48 w-full object-cover" />
             <div className="p-4">
               <h2 className="text-xl font-semibold">{property.title}</h2>

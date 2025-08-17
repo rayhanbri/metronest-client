@@ -32,7 +32,7 @@ const WhyMetro = () => {
       </h2>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
         {features.map((item, index) => (
-          <div key={index} className="bg-white shadow-md rounded-2xl p-6 text-center border hover:shadow-xl transition duration-300">
+          <div key={index} className="bg-base-100 shadow-md rounded-lg p-6 text-center  hover:shadow-xl transition duration-300">
             <div className="flex justify-center mb-4">
               {item.icon}
             </div>

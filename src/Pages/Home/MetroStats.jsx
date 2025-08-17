@@ -40,7 +40,7 @@ const MetroStats = () => {
                 {stats.map((item, index) => (
                     <div
                         key={index}
-                        className="bg-white shadow-md border rounded-2xl py-6 px-4 hover:shadow-lg transition duration-300"
+                        className="bg-base-100 shadow-md  rounded-lg py-6 px-4 hover:shadow-lg transition duration-300"
                     >
                         <div className="flex justify-center mb-3">{item.icon}</div>
                         <h3 className="text-xl font-semibold mb-1">{item.title}</h3>
